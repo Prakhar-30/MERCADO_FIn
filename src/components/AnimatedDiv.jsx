@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const AnimatedText = ({ children }) => {
+const AnimatedText = ({ children, spread=5, blur=10, x=5, y=5 }) => {
   return (
     <div className="relative">
       <motion.div
@@ -13,7 +13,7 @@ const AnimatedText = ({ children }) => {
       </motion.div>
       <motion.div
         initial={{ opacity: 0, boxShadow: '0px 0px 0px rgba(0,0,0,0)' }}
-        animate={{ opacity: 1, boxShadow: '0px 20px 20px 20px rgba(76, 220, 239, 0.5)' }}
+        animate={{ opacity: 1, boxShadow: `${x}px ${y}px ${blur}px ${spread}px rgba(76, 220, 239, 0.5)` }}
         transition={{ duration: 5 }}
         className="absolute top-0 left-0 w-full h-full mr-12 border-t-2 border-l-2 rounded-md border-[#4cdaf0]"
       ></motion.div>

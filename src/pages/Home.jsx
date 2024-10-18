@@ -46,7 +46,7 @@ export function Home() {
         </div>
         <div className="flex mt-11">
           <div className="mx-6 my-6 text-center w-3/5">
-            <AnimatedText>
+            <AnimatedText blur={10} spread={2}>
               Welcome to Mercado, where creativity thrives. As an artist in game
               development, music, or visual arts, you drive the digital
               revolution. Mercado empowers you to showcase your work to a global
@@ -96,7 +96,7 @@ export function Home() {
             </BackgroundGradientDemo>
           </div>
           <div className="mr-2 mt-6 text-center w-3/5">
-            <AnimatedText>
+            <AnimatedText blur={10} spread={2}>
               Unlock limitless possibilities with Mercado. As a creator, dive
               into the world of NFTs and transform your digital art and
               experiences into valuable assets. Mint and sell your work easily

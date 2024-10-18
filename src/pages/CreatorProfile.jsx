@@ -94,7 +94,7 @@ const CreatorProfile = () => {
       <div className="flex w-full items-center justify-evenly ">
         <div className="px-[10rem] py-[2rem] rounded-md mb- mr-0 flex justify-center items-center">
           <div className="mx-36">
-            <AnimatedText>
+            <AnimatedText blur={4} spread={1}>
               <div className="list-decimal text-slate-400 px-10 text-center">
                 Creator Profile
               </div>
@@ -102,7 +102,7 @@ const CreatorProfile = () => {
           </div>
           <div className="mx-36">
             <Link to={"/CreatorsRanking"}>
-              <AnimatedText>
+              <AnimatedText blur={4} spread={1}>
                 <div className="list-decimal text-slate-400 px-10 text-center">
                   Creator Rankings
                 </div>
@@ -115,7 +115,7 @@ const CreatorProfile = () => {
       <div className="flex">
         <div className="px-8 py-4 rounded-md h-[30rem] mr-24">
           <div className="mb-16">
-            <AnimatedText>
+            <AnimatedText blur={4} spread={1}>
               {isRegistered ? (
                 <>
                   <div className="rounded-md mb-4 flex flex-col items-center ">
@@ -176,11 +176,11 @@ const CreatorProfile = () => {
           </div>
           <div className="mb-16 text-center">
             <Link to={"/allRequests"}>
-              <AnimatedText>View Artist Requests</AnimatedText>
+              <AnimatedText blur={4} spread={1}>View Artist Requests</AnimatedText>
             </Link>
           </div>
         </div>
-        <AnimatedText>
+        <AnimatedText blur={4} spread={1}>
           <div className="flex flex-col items-center mt-4 w-[50rem] h-[35rem] overflow-y-scroll justify-evenly space-y-6 pt-8">
             {isRegistered ? (
               <>

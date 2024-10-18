@@ -98,7 +98,7 @@ const AllRequests = () => {
           "relative flex min-h-screen flex-col items-center justify-center overflow-auto bg-slate-950 w-full"
         )}
       >
-        <AnimatedText>
+        <AnimatedText blur={4} spread={1}>
           <h1 className="text-4xl text-slate-200 mb-8">Register as Creator</h1>
           <form onSubmit={handleRegisterCreator} className="w-96">
             <Label htmlFor="creatorName" className="text-slate-200">
@@ -129,7 +129,7 @@ const AllRequests = () => {
         "relative flex min-h-screen flex-col items-center justify-center overflow-auto bg-slate-950 w-full"
       )}
     >
-      <AnimatedText>
+      <AnimatedText blur={4} spread={1}>
         <h1 className="text-4xl text-slate-200 mb-8">Unfulfilled Requests</h1>
         <div className="w-[50rem] h-[35rem] overflow-y-scroll space-y-6">
           {requests.map((request) => (

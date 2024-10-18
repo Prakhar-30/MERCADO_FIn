@@ -80,13 +80,13 @@ const ViewRequestOptions = () => {
         "relative h-screen flex min-h-screen flex-col items-center justify-evenly overflow-y-scroll overflow-x-hidden z-[5000] bg-slate-950 w-full"
       )}
     >
-      <AnimatedText>
+      <AnimatedText blur={4} spread={1}>
         <h1 className="text-3xl font-bold text-slate-200">
           View Request Options
         </h1>
       </AnimatedText>
       {request && (
-        <AnimatedText>
+        <AnimatedText blur={4} spread={1}>
           <h2 className="text-2xl font-semibold text-slate-200">
             Request Details
           </h2>

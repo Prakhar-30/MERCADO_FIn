@@ -127,7 +127,7 @@ const ArtistProfile = () => {
       <div className="flex w-full items-center justify-evenly ">
         <div className="px-[10rem] py-[2rem] rounded-md mb- mr-0 flex justify-center items-center">
           <div className="mx-40">
-            <AnimatedText>
+            <AnimatedText blur={4} spread={1}>
               <div className="list-decimal text-slate-400 px-10 text-center">
                 Artist Profile
               </div>
@@ -135,7 +135,7 @@ const ArtistProfile = () => {
           </div>
           <div className="mx-40">
             <Link to={"/ArtistsListing"}>
-              <AnimatedText>
+              <AnimatedText blur={4} spread={1}>
                 <div className="list-decimal text-slate-400 px-10 text-center">
                   Artist Rankings
                 </div>
@@ -148,7 +148,7 @@ const ArtistProfile = () => {
       <div className="flex">
         <div className="px-8 py-4 rounded-md h-[30rem] mr-24">
           <div className="mb-16">
-            <AnimatedText>
+            <AnimatedText blur={4} spread={1}>
               {isRegistered ? (
                 <>
                   <div className="rounded-md mb-4 flex flex-col items-center ">
@@ -209,12 +209,12 @@ const ArtistProfile = () => {
           </div>
           {!isRegistered ? (
             <div>
-              <h1 className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-slate-900 border border-slate-800">
+              <h1 className="max-w-md w-full text-slate-200 mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-slate-900 border border-slate-800">
                 Please Register
               </h1>
             </div>
           ) : (
-            <AnimatedText>
+            <AnimatedText blur={4} spread={1}>
               <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-slate-900 border border-slate-800">
                 <button
                   className="bg-gradient-to-br mb-4 relative group/btn from-cyan-900 to-blue-900 block w-full text-slate-200 rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#1e40af40_inset,0px_-1px_0px_0px_#1e40af40_inset] "
@@ -279,7 +279,7 @@ const ArtistProfile = () => {
             </AnimatedText>
           )}
         </div>
-        <AnimatedText>
+        <AnimatedText blur={4} spread={1}>
           <div className="flex flex-col items-center mt-4 w-[50rem] h-[35rem] overflow-y-scroll justify-evenly space-y-6 pt-8">
             {isRegistered ? (
               <>
