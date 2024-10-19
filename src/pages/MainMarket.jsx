@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { cn } from "../utils/cn";
 import { motion, AnimatePresence } from "framer-motion";
+import toast, { Toaster } from 'react-hot-toast';
 
 import { BackgroundGradientDemo } from "../components/BackgroundGradientDemo";
 import { Using3dCard } from "../components/Using3dCard";
@@ -39,6 +40,8 @@ export function MainMarket() {
   const [filteredMetadata, setFilteredMetadata] = useState([]);
   const [purchaseAmount, setPurchaseAmount] = useState(1);
   const [userBalance, setUserBalance] = useState(0);
+
+  const notify = (mesg) => toast(mesg);
 
   useEffect(() => {
     const fetchMetadata = async () => {
@@ -149,7 +152,7 @@ export function MainMarket() {
           .send({ from: account });
 
         setBuyLoading(false);
-        alert("Purchase successful!");
+        notify("Purchase successful!");
         await fetchUserBalance(selectedImageDetails.ipfsHash);
 
         const updatedMetadata = [...metadata];
@@ -171,10 +174,10 @@ export function MainMarket() {
       } catch (error) {
         setBuyLoading(false);
         console.error("Error purchasing NFT:", error);
-        alert("Error purchasing NFT. Please try again.");
+        notify("Error purchasing NFT. Please try again.");
       }
     } else {
-      alert("Invalid NFT details. Please select a valid NFT.");
+      notify("Invalid NFT details. Please select a valid NFT.");
     }
   };
 
@@ -191,7 +194,7 @@ export function MainMarket() {
           .sell(ARTISTS_CONTRACT_ADDRESS, selectedImageDetails.ipfsHash, amount)
           .send({ from: account });
         setSellLoading(false);
-        alert("Sale successful!");
+        notify("Sale successful!");
         await fetchUserBalance(selectedImageDetails.ipfsHash);
 
         const updatedMetadata = [...metadata];
@@ -213,10 +216,10 @@ export function MainMarket() {
       } catch (error) {
         setSellLoading(false);
         console.error("Error selling NFT:", error);
-        alert("Error selling NFT. Please try again.");
+        notify("Error selling NFT. Please try again.");
       }
     } else {
-      alert("Invalid NFT details. Please select a valid NFT.");
+      notify("Invalid NFT details. Please select a valid NFT.");
     }
   };
 
@@ -448,6 +451,12 @@ export function MainMarket() {
   )}
 </AnimatePresence>
       </div>
+    <div>
+      <Toaster 
+       position="bottom-right"
+       reverseOrder={false}
+      />
+    </div>
     </div>
   );
 }

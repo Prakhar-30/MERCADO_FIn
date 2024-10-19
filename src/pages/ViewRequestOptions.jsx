@@ -7,6 +7,7 @@ import { ExpandableCardDemo } from "../components/ExpandableCardDemo";
 import { Gateway_url } from "../../config";
 import AnimatedText from "../components/AnimatedDiv";
 import { cn } from "../utils/cn";
+import toast, {Toaster} from "react-hot-toast";
 
 const ViewRequestOptions = () => {
   const { requestId } = useParams();
@@ -14,6 +15,8 @@ const ViewRequestOptions = () => {
   const [options, setOptions] = useState([]);
   const [request, setRequest] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const notify = (mesg) => toast(mesg);
 
   useEffect(() => {
     const fetchRequestAndOptions = async () => {
@@ -44,11 +47,11 @@ const ViewRequestOptions = () => {
       await ArtistsContract.methods
         .fulfillRequest(requestId, optionIndex)
         .send({ from: account });
-      alert("Request fulfilled successfully!");
+      notify("Request fulfilled successfully");
       // Optionally, you can refresh the options or redirect the user
     } catch (error) {
       console.error("Error fulfilling request:", error);
-      alert("Error fulfilling request. Please try again.");
+      notify("Error fulfilling request. Please try again.")
     }
   };
 
@@ -105,6 +108,7 @@ const ViewRequestOptions = () => {
           </p>
         )}
       </div>
+      <Toaster position="bottom-right" reverseOrder={false}/>
     </div>
   );
 };

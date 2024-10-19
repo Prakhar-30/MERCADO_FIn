@@ -9,6 +9,7 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Link, useNavigate } from "react-router-dom";
 import { BackgroundGradientDemo } from "../components/BackgroundGradientDemo";
+import toast, {Toaster} from "react-hot-toast";
 
 const ArtistProfile = () => {
   const { ArtistsContract, ERC1155_CONTRACT, account } = useStateContext();
@@ -28,6 +29,8 @@ const ArtistProfile = () => {
   });
   const navigate = useNavigate();
   console.log(artist.reputation);
+
+  const notify = (mesg) => toast(mesg);
 
   useEffect(() => {
     const fetchArtistInfo = async () => {
@@ -101,7 +104,7 @@ const ArtistProfile = () => {
       setIsRegistered(true);
     } catch (err) {
       console.error(err);
-      alert("Error in Registering");
+      notify("Error registering artist");
     }
   };
 
@@ -114,7 +117,7 @@ const ArtistProfile = () => {
       setNewArtRequest({ description: "", price: "" });
     } catch (err) {
       console.error(err);
-      alert("Error creating art request");
+      notify("Error creating art request");
     }
   };
 
@@ -323,6 +326,10 @@ const ArtistProfile = () => {
           </div>
         </AnimatedText>
       </div>
+      <Toaster 
+        position="bottom-right"
+        reverseOrder={false}
+      />
     </div>
   );
 };

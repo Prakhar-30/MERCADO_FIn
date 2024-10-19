@@ -7,6 +7,7 @@ import { cn } from "../utils/cn";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import FileUploadForArtRequests from "../components/FileUploadForArtRequests";
+import toast, { Toaster } from "react-hot-toast";
 
 const AllRequests = () => {
   const { ArtistsContract, account } = useStateContext();
@@ -15,6 +16,8 @@ const AllRequests = () => {
   const [creatorName, setCreatorName] = useState("");
   const [optionInputs, setOptionInputs] = useState({});
   // const navigate = useNavigate();
+
+  const notify = (mesg) => toast(mesg);
 
   useEffect(() => {
     const checkCreatorStatus = async () => {
@@ -79,11 +82,11 @@ const AllRequests = () => {
       await ArtistsContract.methods
         .addArtOption(requestId, ipfsHash)
         .send({ from: account });
-      alert("Option submitted successfully!");
+      notify("Option submitted successfully");
       // Optionally, you can refresh the requests list here
     } catch (error) {
       console.error("Error submitting option:", error);
-      alert("Error submitting option. Please try again.");
+      notify("Error submitting option");
     }
   };
 
@@ -165,6 +168,10 @@ const AllRequests = () => {
           ))}
         </div>
       </AnimatedText>
+      <Toaster 
+        position="bottom-right"
+        reverseOrder={false}
+      />
     </div>
   );
 };
