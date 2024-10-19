@@ -436,7 +436,6 @@ export function MainMarket() {
               onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-2xl font-bold text-white mb-4">NFT Price Graph</h2>
-              <h2 className="text-2xl font-bold text-white mb-4">NFT Price Graph</h2>
               <DisplayChart ipfsHash={selectedImageDetails.ipfsHash}  />
               <button
                  className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
